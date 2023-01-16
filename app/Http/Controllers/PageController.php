@@ -24,6 +24,11 @@ class PageController extends Controller
         return view('guest.register');
     }
 
+    public function landing()
+    {
+        return view('admin.landing');
+    }
+
     public function registerstore(Request $request)
     {
         $request->validate([
@@ -44,6 +49,8 @@ class PageController extends Controller
             'password' => Hash::make($request->password),
             'roles' => 'User'
         ]);
+
+        return redirect('/login');
     }
 
     public function loginstore(Request $request)
@@ -54,8 +61,14 @@ class PageController extends Controller
         ]);
 
         if(Auth::attempt($login)) {
-            $request->session()->regenerate();
-            return redirect()->intended('');
+            if(Auth::user()->roles == 'Admin'){
+                $request->session()->regenerate();
+                return redirect()->intended('admin');
+            }
+            else{
+                $request->session()->regenerate();
+                return redirect()->intended('login');
+            }
         }
     }
 

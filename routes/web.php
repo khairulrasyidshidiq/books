@@ -13,6 +13,8 @@ use App\Http\Controllers\PageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//logout
+Route::get('/logout', [PageController::class, 'logout']);
 
 //guest
 Route::get('/', [PageController::class, 'index']);
@@ -23,3 +25,5 @@ Route::post('/loginstore', [PageController::class, 'loginstore']);
 
 //user
 
+//admin
+Route::get('/admin', [PageController::class, 'landing']);

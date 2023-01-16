@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'no_hp' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin'),
+            'roles' => 'Admin'
         ]);
     }
 }
