@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Lora&display=swap');
+body{
+    background-color: #243763;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.font-head{
+    font-family: 'Lora', serif;
+}
+
+.font-text{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.btn:hover{
+    background-color: #243763;
+}
