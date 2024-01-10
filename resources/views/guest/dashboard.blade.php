@@ -3,19 +3,18 @@
 @section('content')
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-           <a class="navbar-brand text-white font-head"><img src="{{ asset('/assets/img/buku.png') }}" alt="" width="65">E-book</a>
-           <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-             <ul class="navbar-nav">
-               <li class="nav-item">
-                 <a class="nav-link active text-white font-head" aria-current="page" href="/">Home</a>
-               </li>
-               <li class="nav-item">
-                 <a class="nav-link active text-white btn btn-primary rounded-pill px-3 font-head" href="/login">Login</a>
-               </li>
-             </ul>
-           </div>
-     </div>
- </nav>
+            <a class="navbar-brand text-white font-head"><img src="{{ asset('/assets/img/buku.png') }}" alt=""
+                    width="65">E-book</a>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white btn btn-primary rounded-pill px-3 font-head"
+                            href="/login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container grid">
         <div class="d-flex align-items-center">
             <div class="text-area">

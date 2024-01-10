@@ -4,11 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Book;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Excel;
+use App\Exports\UserExport;
+use App\Exports\BookExport;
+
 
 class PageController extends Controller
 {
+    Function exportuser(){
+        return Excel::download(new UserExport(), 'users.xlsx');
+    }
+
+    Function exportbook(){
+        return Excel::download(new BookExport(), 'books.xlsx');
+    }
     public function index()
     {
         return view('guest.dashboard');
@@ -24,9 +37,56 @@ class PageController extends Controller
         return view('guest.register');
     }
 
-    public function landing()
+    public function adminlanding()
     {
         return view('admin.landing');
+    }
+
+    public function userlanding(Request $request)
+    {
+        $book = Book::all();
+        $category = Category::all();
+
+        if ($filter = $request->filter) {
+            $book = Book::where('category_id', $filter)->get();
+        } 
+
+        return view('user.landing', compact('book', 'category'));
+    }
+
+    public function userdashboard()
+    {
+        $book = Book::orderBy('download', 'desc')->take(3)->get();
+        return view('user.dashboard', compact('book'));
+    }
+
+    public function readbook($id)
+    {
+        $book = Book::where('id',$id)->first();
+        return view('user.readbook', compact('book'));
+    }
+
+    public function datauser()
+    {
+        $user = User::all();
+        return view('admin.datauser', compact('user'));
+    }
+    public function databook()
+    {
+        $category = Category::all();
+        $book = Book::all();
+        return view('admin.databook', compact('category', 'book'));
+    }
+    public function editbook($id)
+    {
+        $category = Category::all();
+        $book = Book::where('id', $id)->first();
+        return view('admin.editbook', compact('book', 'category'));
+    }
+    public function category()
+    {
+        $category = Category::all();
+        return view('admin.category', compact('category'));
     }
 
     public function registerstore(Request $request)
@@ -50,7 +110,7 @@ class PageController extends Controller
             'roles' => 'User'
         ]);
 
-        return redirect('/login');
+        return redirect('/login')->with('register', 'Register success!');
     }
 
     public function loginstore(Request $request)
@@ -63,13 +123,15 @@ class PageController extends Controller
         if(Auth::attempt($login)) {
             if(Auth::user()->roles == 'Admin'){
                 $request->session()->regenerate();
-                return redirect()->intended('admin');
+                return redirect()->intended('admin')->with('admin', 'Login success!');
             }
             else{
                 $request->session()->regenerate();
-                return redirect()->intended('login');
+                return redirect()->intended('user');
             }
         }
+
+        return redirect()->back()->with('salah', 'Login Failed!');
     }
 
     public function logout(Request $request)
@@ -78,5 +140,12 @@ class PageController extends Controller
        $request->session()->invalidate();
        $request->session()->regenerateToken();
        return redirect('/');
+    }
+
+    public function userdelete($id)
+    {
+
+        User::where('id', $id)->delete();
+        return back();
     }
 }

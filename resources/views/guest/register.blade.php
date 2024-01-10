@@ -1,13 +1,13 @@
 @extends('layout.layout')
 
 @section('content')
-    <div class="container grid bg-white py-4 mt-4">
+    <div class="container grid bg-white py-3 mt-4">
         <div class="d-flex justify-content-center align-items-center">
             <img src="{{ asset('/assets/img/guest.jpg') }}" alt="" width="400" height="400">
         </div>
-        <div class="formarea">
+        <div class="container">
             <div class="text-center">
-                <h2 class="fw-bold font-text">Register</h2>
+                <h2 class="fw-bold font-text mt-2">Register</h2>
             </div>
             <form action="/registerstore" method="POST">
                 @csrf

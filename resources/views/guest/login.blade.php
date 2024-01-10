@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('content')
-    <div class="container grid bg-white py-5 mt-5">
+    <div class="container grid bg-white py-5 mt-5" style="padding-bottom: 100px !important">
         <div class="d-flex justify-content-center align-items-center">
             <img src="{{ asset('/assets/img/guest.jpg') }}" alt="" width="400" height="400">
         </div>
@@ -26,4 +26,28 @@
               </form>
         </div>
     </div>
+    <script>
+        @if (Session::has('salah'))
+            toastr.options = {
+                "closeButton": true,
+            }
+            toastr.warning("{{ session('salah') }}");
+        @endif
+    </script>
+    <script>
+      @if (Session::has('register'))
+          toastr.options = {
+              "closeButton": true,
+          }
+          toastr.success("{{ session('register') }}");
+      @endif
+  </script>
+  <script>
+    @if (Session::has('message'))
+        toastr.options = {
+            "closeButton": true,
+        }
+        toastr.warning("{{ session('message') }}");
+    @endif
+</script>
 @endsection

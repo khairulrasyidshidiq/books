@@ -1539,7 +1539,7 @@ h6 .badge {
   left: 0;
   width: 100%;
   height: 115px;
-  background-color: #02225B;
+  background-color: #144272;
   z-index: -1; }
 
 .navbar {
@@ -1739,7 +1739,7 @@ h6 .badge {
         background-color: #fff;
         color: #6c757d; }
         .nav-collapse .navbar-nav .nav-item .nav-link:hover {
-          background-color: #fcfcfd;
+          background-color: #6666b8;
           color: #02225B; }
       .nav-collapse .navbar-nav .nav-item:focus > a, .nav-collapse .navbar-nav .nav-item.active > a {
         background-color: #02225B;
@@ -2471,7 +2471,7 @@ pre {
   top: 0;
   height: 100%;
   width: 250px;
-  background-color: #fff;
+  background-color: #144272;
   z-index: 880;
   left: 0; }
 
@@ -2496,7 +2496,7 @@ body.sidebar-mini .main-sidebar {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
     content: ' ';
     position: fixed;
-    background-color: #fff;
+    background-color: #144272;
     width: 65px;
     height: 100%;
     left: 0;
@@ -2564,7 +2564,7 @@ body.sidebar-mini .main-sidebar {
       body.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li > a:focus,
       body.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li.active > a,
       body.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li.active > a:hover {
-        color: #fff;
+        color: rgb(164, 42, 42);
         background-color: #02225B !important; }
       body.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li a {
         height: 40px;
@@ -2814,7 +2814,7 @@ body.layout-3 .main-footer {
         margin-top: 3px;
         width: 100%; }
       .main-sidebar .sidebar-menu li a:hover {
-        background-color: #f8fafb; }
+        background-color: #3c92bd; }
     .main-sidebar .sidebar-menu li.active a {
       color: #02225B;
       font-weight: 600;
@@ -2982,3 +2982,4 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   100% {
     -webkit-transform: scale(1.2, 1.2);
     opacity: 0.0; } }
+

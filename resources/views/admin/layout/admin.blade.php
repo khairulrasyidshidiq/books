@@ -3,16 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0- 
    alpha/css/bootstrap.css"
         rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
@@ -72,7 +74,7 @@
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <img alt="image" src="../../../assets/admin/img/avatar/avatar-1.png"
                                 class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
+                            <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->username }}</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="/logout" class="dropdown-item has-icon text-danger">
@@ -85,14 +87,24 @@
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a>SMK WIKRAMA BOGOR</a>
+                        <a class="text-white">E-book</a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="nav-item dropdown">
-                            <a href="/admin"><i class="fas fa-home"></i><span>Dashboard</span></a>
+                            <a href="/admin"><i class="fas fa-home text-white"></i><span
+                                    class="text-white">Dashboard</span></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="/verifikasi"><i class="fas fa-money-bill"></i><span>Pembayaran</span></a>
+                            <a href="/datauser"><i class="fas fa-user text-white"></i><span
+                                    class="text-white">Users</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="/databook"><i class="fas fa-book text-white"></i><span
+                                    class="text-white">Book</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="/category"><i class="fas fa-tags text-white"></i><span class="text-white">Category
+                                    Book</span></a>
                         </li>
                     </ul>
                 </aside>
@@ -105,11 +117,6 @@
             </div>
             </section>
         </div>
-        <footer class="main-footer">
-            <div class="footer-left">
-                Copyright &copy; 2022, <span><a>SMK Wikrama Bogor</a></span>
-            </div>
-        </footer>
     </div>
     </div>
 
